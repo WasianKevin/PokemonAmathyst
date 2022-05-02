@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "Gtrun3ZZMFnGEOQrqDUaGObmLnAQEBTdFUIkrOmYAL3CPLyTmttuVe9JeivxExnjnMTxAkTRwginlrnkW5ChoQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\bengtsson.kevin\\Documents\\PokemonAmathyst\\PokemonAmathyst\\PokemonAmathyst\\PokemonAmathyst.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\bengtsson.kevin\\.nuget\\packages\\raylib-cs\\4.0.0.1\\raylib-cs.4.0.0.1.nupkg.sha512",
+    "C:\\Users\\bengtsson.kevin\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}
