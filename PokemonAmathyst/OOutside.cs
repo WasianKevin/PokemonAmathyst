@@ -78,7 +78,7 @@ public class OOutside
             {
                 if (Raylib.CheckCollisionRecs(playerRect, wall) == true)
                 {
-                    int EncounterRate = generator.Next(20);
+                    int EncounterRate = generator.Next(100);
 
                     if (EncounterRate == 1)
                     {

@@ -5,11 +5,8 @@ using System.Collections.Generic;
 using System.Threading;
 public class Battle
 {
-    public static (string, string) Fight(string starter, string room)
+    public static (string, string, string) Fight(Texture2D BattleWonTre, Rectangle tackle, string fightyboi, Texture2D BattleTreAttack, Rectangle fight, string starter, string room, Texture2D BattleTre, Texture2D BattleTor, Texture2D BattleMud)
     {
-        Texture2D BattleTor = Raylib.LoadTexture("BattleTor.png");
-        Texture2D BattleTre = Raylib.LoadTexture("BattleTre.png");
-        Texture2D BattleMud = Raylib.LoadTexture("BattleMud.png");
 
         if (room == "battle")
         {
@@ -19,12 +16,33 @@ public class Battle
 
             Raylib.ClearBackground(Color.BEIGE);
 
-            
 
-            if (starter == "Treecko")
+
+            if (starter == "Treecko" && fightyboi == "none")
             {
                 Raylib.DrawTexture(BattleTre, 0, 0, Color.WHITE);
             }
+
+            if (Raylib.IsMouseButtonPressed(MouseButton.MOUSE_BUTTON_LEFT) && Raylib.CheckCollisionPointRec(mousePos, fight) && starter == "Treecko")
+            {
+                fightyboi = "Treecko";
+            }
+
+            if (fightyboi == "Treecko")
+            {
+                Raylib.DrawTexture(BattleTreAttack, 0, 0, Color.WHITE);
+            }
+
+            if (Raylib.IsMouseButtonPressed(MouseButton.MOUSE_BUTTON_LEFT) && Raylib.CheckCollisionPointRec(mousePos, tackle) && fightyboi == "Treecko" && starter == "Treecko")
+            {
+                fightyboi = "Tackle";
+            }
+
+            if (fightyboi == "Tackle")
+            {
+                Raylib.DrawTexture(BattleWonTre, 0, 0, Color.WHITE);
+            }
+
 
             if (starter == "Torchic")
             {
@@ -45,6 +63,6 @@ public class Battle
 
 
 
-        return (starter, room);
+        return (starter, room, fightyboi);
     }
 }

@@ -7,25 +7,11 @@ using System.Threading;
 
 public class home
 {
-    public static (string, string, string, Rectangle) HOMER(string room, string balls, string starter, Rectangle playerRect, Rectangle TPoutside, Rectangle TPinside, Rectangle pickball, Texture2D MaleImgS, Texture2D background, Texture2D NoPoke, Texture2D Treecko, Texture2D Mudkip, Texture2D Torchic, float speed)
+    public static (string, string, string, Rectangle) HOMER(string room, string balls, string starter, Rectangle playerRect, Rectangle TPoutside, Rectangle TPinside, Rectangle pickball, Texture2D MaleImgS, Texture2D background, Texture2D NoPoke, Texture2D Treecko, Texture2D Mudkip, Texture2D Torchic, float speed, Texture2D kitchenWall, Texture2D bedroomWall, Texture2D Kanna, Texture2D Soffa, Texture2D Table, Texture2D Planta, Texture2D rdc, Texture2D Hflower, Texture2D Lflower, Texture2D Chair, Texture2D RL, Texture2D CornerDL)
     {
         if (room == "home")
         {
             Raylib.BeginDrawing();
-
-            Texture2D kitchenWall = Raylib.LoadTexture("KitchenWall.png");
-            Texture2D bedroomWall = Raylib.LoadTexture("BedroomWall.png");
-            Texture2D Kanna = Raylib.LoadTexture("Kanna.png");
-            Texture2D Soffa = Raylib.LoadTexture("Soffa.png");
-            Texture2D Table = Raylib.LoadTexture("Table.png");
-            Texture2D Planta = Raylib.LoadTexture("Planta.png");
-            Texture2D rdc = Raylib.LoadTexture("RDcorner.png");
-            Texture2D Hflower = Raylib.LoadTexture("Hflower.png");
-            Texture2D Lflower = Raylib.LoadTexture("Lflower.png");
-            Texture2D Chair = Raylib.LoadTexture("Chair.png");
-            Texture2D RL = Raylib.LoadTexture("RL.png");
-            Texture2D CornerDL = Raylib.LoadTexture("CornerDL.png");
-
 
 
             Vector2 movement = MOOvement.ReadMovement(speed);
