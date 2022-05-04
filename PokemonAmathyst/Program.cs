@@ -27,7 +27,11 @@ Texture2D BattleTor = Raylib.LoadTexture("BattleTor.png");
 Texture2D BattleTre = Raylib.LoadTexture("BattleTre.png");
 Texture2D BattleMud = Raylib.LoadTexture("BattleMud.png");
 Texture2D BattleTreAttack = Raylib.LoadTexture("BattleTreAttack.png");
+Texture2D BattleTorAttack = Raylib.LoadTexture("BattleTorAttack.png");
+Texture2D BattleMudAttack = Raylib.LoadTexture("BattleMudAttack.png");
 Texture2D BattleWonTre = Raylib.LoadTexture("BattleWonTre.png");
+Texture2D BattleWonTor = Raylib.LoadTexture("BattleWonTor.png");
+Texture2D BattleWonMud = Raylib.LoadTexture("BattleWonMud.png");
 
 Texture2D kitchenWall = Raylib.LoadTexture("KitchenWall.png");
 Texture2D bedroomWall = Raylib.LoadTexture("BedroomWall.png");
@@ -64,7 +68,7 @@ while (!Raylib.WindowShouldClose())
     (room, MainScreen) = MainRoom.RoombaMain(room, MainScreen);
 
     //Creation of the room "HOME"
-    (room, balls, starter, playerRect) = home.HOMER(room, balls, starter, playerRect, TPoutside, TPinside, pickball, MaleImgS, background, NoPoke, Treecko, Mudkip, Torchic, speed, kitchenWall, bedroomWall, Kanna, Soffa, Table, Planta, rdc, Hflower,  Lflower,  Chair,  RL,  CornerDL);
+    (room, balls, starter, playerRect) = home.HOMER(room, balls, starter, playerRect, TPoutside, TPinside, pickball, MaleImgS, background, NoPoke, Treecko, Mudkip, Torchic, speed, kitchenWall, bedroomWall, Kanna, Soffa, Table, Planta, rdc, Hflower, Lflower, Chair, RL, CornerDL);
 
     //Picking a starter
     (starter, balls) = Ballz.BallzDeep(balls, starter, pickpoke);
@@ -73,7 +77,7 @@ while (!Raylib.WindowShouldClose())
     (room, starter, playerRect) = OOutside.OUTSIDER(generator, room, starter, Outside, MaleImgS, TPinside, playerRect, NoPoke, Treecko, Mudkip, Torchic, speed);
 
     //Battle against wild Pokemon
-    (starter, room, fightyboi) = Battle.Fight(BattleWonTre, tackle, fightyboi, BattleTreAttack, fight, starter, room, BattleTre, BattleTor, BattleMud);
+    (starter, room, fightyboi) = Battle.Fight(BattleWonTre, BattleTreAttack, BattleWonTor, BattleTorAttack, BattleWonMud, BattleMudAttack, fightyboi, tackle, fight, starter, room, BattleTre, BattleTor, BattleMud);
 }
 
 //Movement
