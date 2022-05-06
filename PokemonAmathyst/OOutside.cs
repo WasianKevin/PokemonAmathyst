@@ -9,6 +9,7 @@ public class OOutside
 {
     public static (string, string, Rectangle) OUTSIDER(Random generator, string room, string starter, Texture2D Outside, Texture2D MaleImgS, Rectangle TPinside, Rectangle playerRect, Texture2D NoPoke, Texture2D Treecko, Texture2D Mudkip, Texture2D Torchic, float speed)
     {
+        //What happens when going outside
         if (room == "outside")
         {
             Raylib.BeginDrawing();
@@ -63,7 +64,7 @@ public class OOutside
 
 
 
-            //Grass + catchrate
+            //Grass rectangles
             List<Rectangle> Grass = new List<Rectangle>();
             Grass.Add(new Rectangle(0, 0, 339, 999));
             Grass.Add(new Rectangle(339, 545, 132, 455));
@@ -73,7 +74,7 @@ public class OOutside
 
 
 
-            //If I walk into a wall X, checks collision
+            //If I walk into the grass, it randomly picks a number every one frame. If the computer gets the number 1, you get into battle.
             foreach (Rectangle wall in Grass)
             {
                 if (Raylib.CheckCollisionRecs(playerRect, wall) == true)
@@ -88,7 +89,7 @@ public class OOutside
                 }
             }
 
-
+            //allows me to go back inside
             if (Raylib.CheckCollisionRecs(playerRect, TPinside))
             {
                 room = "home";
@@ -99,22 +100,22 @@ public class OOutside
             if (undoY) playerRect.y -= movement.Y;
 
 
-
+            //If i havent picked a pokemon, the box at the top of the screen is empty
             if (starter == "NotChosen")
             {
                 Raylib.DrawTexture(NoPoke, 550, 0, Color.WHITE);
             }
-
+            //Shows Treecko in the box on top of the screen
             if (starter == "Treecko")
             {
                 Raylib.DrawTexture(Treecko, 550, 0, Color.WHITE);
             }
-
+            //Shows Torchic in the box on top of the screen
             if (starter == "Torchic")
             {
                 Raylib.DrawTexture(Torchic, 550, 0, Color.WHITE);
             }
-
+            //Shows Mudkip in the box on top of the screen
             if (starter == "Mudkip")
             {
                 Raylib.DrawTexture(Mudkip, 550, 0, Color.WHITE);

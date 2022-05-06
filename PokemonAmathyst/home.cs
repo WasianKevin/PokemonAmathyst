@@ -9,17 +9,19 @@ public class home
 {
     public static (string, string, string, Rectangle) HOMER(string room, string balls, string starter, Rectangle playerRect, Rectangle TPoutside, Rectangle TPinside, Rectangle pickball, Texture2D MaleImgS, Texture2D background, Texture2D NoPoke, Texture2D Treecko, Texture2D Mudkip, Texture2D Torchic, float speed, Texture2D kitchenWall, Texture2D bedroomWall, Texture2D Kanna, Texture2D Soffa, Texture2D Table, Texture2D Planta, Texture2D rdc, Texture2D Hflower, Texture2D Lflower, Texture2D Chair, Texture2D RL, Texture2D CornerDL)
     {
+        //If im inside the house
         if (room == "home")
         {
             Raylib.BeginDrawing();
 
-
+            //allows me to move
             Vector2 movement = MOOvement.ReadMovement(speed);
 
 
-
+            //Creates the background
             Raylib.DrawTexture(background, 0, 0, Color.WHITE);
 
+            //Draws player
             Raylib.DrawTexture(MaleImgS, (int)playerRect.x, (int)playerRect.y, Color.WHITE);
 
 
@@ -29,7 +31,7 @@ public class home
                 Raylib.DrawText("Head to the Wardrobe and pick your first Pokemon!", 250, Raylib.GetScreenHeight() - 50, 30, Color.WHITE);
             }
 
-
+            //Displays the instructions
             if (balls == "chosen")
             {
                 Raylib.DrawText("Exit the house and catch your first Pokemon!", 300, Raylib.GetScreenHeight() - 50, 30, Color.WHITE);
@@ -37,22 +39,22 @@ public class home
 
 
 
-
+            //If i havent picked a pokemon, the box at the top of the screen is empty
             if (starter == "NotChosen")
             {
                 Raylib.DrawTexture(NoPoke, 550, 0, Color.WHITE);
             }
-
+            //Shows Treecko in the box on top of the screen
             if (starter == "Treecko")
             {
                 Raylib.DrawTexture(Treecko, 550, 0, Color.WHITE);
             }
-
+            //Shows Torchic in the box on top of the screen
             if (starter == "Torchic")
             {
                 Raylib.DrawTexture(Torchic, 550, 0, Color.WHITE);
             }
-
+            //Shows Mudkip in the box on top of the screen
             if (starter == "Mudkip")
             {
                 Raylib.DrawTexture(Mudkip, 550, 0, Color.WHITE);
@@ -76,7 +78,7 @@ public class home
             Raylib.DrawTexture(CornerDL, 65, 852, Color.WHITE);
 
 
-            //Borders
+            //Walls that i place out to create collision
             List<Rectangle> walls = new List<Rectangle>();
 
             walls.Add(new Rectangle(0, 0, 1500, 175));
@@ -142,6 +144,7 @@ public class home
 
             if (undoY) playerRect.y -= movement.Y;
 
+            //If i walk into the door & have chosen a pokemon, it teleports me outside
             if (Raylib.CheckCollisionRecs(playerRect, TPoutside) && balls == "chosen")
             {
                 room = "outside";
@@ -149,12 +152,13 @@ public class home
                 playerRect.x = 625;
             }
 
+            //If i walk to the wardrobe and i press F, i get the "pick a pokemon" screen.
             if (Raylib.CheckCollisionRecs(playerRect, pickball) && (Raylib.IsKeyPressed(KeyboardKey.KEY_F)) && balls != "chosen")
             {
                 balls = "choosing";
             }
 
-
+            // if i go close to the wardrobe, it says "press F"
             if (Raylib.CheckCollisionRecs(playerRect, pickball) && balls != "chosen")
             {
                 Raylib.DrawText("Press F", 100, 100, 50, Color.WHITE);

@@ -10,10 +10,14 @@ string fightyboi = "none";
 string starter = "NotChosen";
 float speed = 6f;
 
+//making sure there's a random generator
 Random generator = new Random();
+
+//Creation of the window
 Raylib.InitWindow(1300, 1000, "Pokemon Amethyst");
 Raylib.SetTargetFPS(30);
 
+//All pictures used in the game
 Texture2D background = Raylib.LoadTexture("");
 Texture2D MaleImgS = Raylib.LoadTexture("MaleS.png");
 Texture2D NoPoke = Raylib.LoadTexture("BarEmpty.png");
@@ -56,6 +60,7 @@ Rectangle pickball = new Rectangle(0, 284, 146, 100);
 Rectangle fight = new Rectangle(647, 734, 314, 105);
 Rectangle tackle = new Rectangle(102, 712, 513, 125);
 
+//Background
 (balls, background) = BallzTheFirst.BallzForreal(balls, background);
 
 //While the window is open
@@ -73,12 +78,12 @@ while (!Raylib.WindowShouldClose())
     //Picking a starter
     (starter, balls) = Ballz.BallzDeep(balls, starter, pickpoke);
 
-    //Outside
+    //Outside room
     (room, starter, playerRect) = OOutside.OUTSIDER(generator, room, starter, Outside, MaleImgS, TPinside, playerRect, NoPoke, Treecko, Mudkip, Torchic, speed);
 
     //Battle against wild Pokemon
     (starter, room, fightyboi) = Battle.Fight(BattleWonTre, BattleTreAttack, BattleWonTor, BattleTorAttack, BattleWonMud, BattleMudAttack, fightyboi, tackle, fight, starter, room, BattleTre, BattleTor, BattleMud);
 }
 
-//Movement
+//Movement compressed into a method
 Vector2 movement = MOOvement.ReadMovement(speed);

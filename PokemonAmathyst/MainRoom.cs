@@ -8,19 +8,23 @@ public class MainRoom
     public static (string, Texture2D) RoombaMain(string room, Texture2D MainScreen)
     {
 
-    if (room == "main")
-    {
-        Raylib.BeginDrawing();
-
-        Raylib.DrawTexture(MainScreen, 0, 0, Color.WHITE);
-
-        if (Raylib.IsKeyPressed(KeyboardKey.KEY_ENTER))
+        //Creation of main room AKA main menu
+        if (room == "main")
         {
-            room = "home";
-        }
+            //Allows me to draw a room
+            Raylib.BeginDrawing();
 
-        Raylib.EndDrawing();
-    }
+            //Draws the background
+            Raylib.DrawTexture(MainScreen, 0, 0, Color.WHITE);
+
+            //I switch room if i press ENTER
+            if (Raylib.IsKeyPressed(KeyboardKey.KEY_ENTER))
+            {
+                room = "home";
+            }
+
+            Raylib.EndDrawing();
+        }
 
         return (room, MainScreen);
     }
